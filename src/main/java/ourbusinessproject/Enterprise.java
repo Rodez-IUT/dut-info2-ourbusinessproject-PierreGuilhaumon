@@ -57,4 +57,7 @@ public class Enterprise {
         this.contactEmail = contactEmail;
     }
 
+    public Long getId() {
+        return this.id;
+    }
 }
