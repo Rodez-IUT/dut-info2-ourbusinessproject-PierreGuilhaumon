@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 @Service
 public class EnterpriseProjectService {
