@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Entity
@@ -22,8 +23,8 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<Project> projects;
+    @NotNull @OneToMany(cascade = CascadeType.ALL)
+    private List<Project> projects;
 
     public Enterprise(){
         this.projects = new ArrayList<>();
@@ -65,7 +66,11 @@ public class Enterprise {
         return this.id;
     }
 
+    public void addProject(Project project){
+        this.projects.add(project);
+    }
+
     public List<Project> getProjects() {
-        return this.projects;
+        return projects.isEmpty() ? null : projects;
     }
 }
