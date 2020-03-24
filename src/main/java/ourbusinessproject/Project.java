@@ -1,10 +1,10 @@
 package ourbusinessproject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Persistent;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Project {
@@ -16,6 +16,16 @@ public class Project {
     @NotEmpty
     private String title;
     private String description;
+    @NotNull
+    @ManyToOne
+    private Enterprise enterprise;
+
+    public Project() {
+    }
+
+    public Project(Enterprise enterprise){
+        this.enterprise = enterprise;
+    }
 
     public String getTitle() {
         return title;
@@ -35,5 +45,9 @@ public class Project {
 
     public Long getId() {
         return this.id;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
     }
 }
