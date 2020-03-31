@@ -21,6 +21,8 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        // L'annotation définie la méthode comme une transaction ce qui veut dire que si une erreur se produit,
+        // alors aucune donnée n'est sauvegardée.
 
         enterprise1 = new Enterprise();
         enterprise1.setName("Enterprise 1");

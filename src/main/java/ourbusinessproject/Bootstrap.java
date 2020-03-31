@@ -1,8 +1,8 @@
 package ourbusinessproject;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import javax.annotation.PostConstruct;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Component;
+        import javax.annotation.PostConstruct;
 
 @Component
 public class Bootstrap {
@@ -18,7 +18,6 @@ public class Bootstrap {
         try {
             initializationService.initProjects();
         } catch (RuntimeException err) {
-
         }
     }
 
